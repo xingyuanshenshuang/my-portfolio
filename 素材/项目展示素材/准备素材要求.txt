@@ -1,0 +1,20 @@
+1. 智慧商城（Vue2项目）
+- 项目名称 ：智慧商城
+- 技术栈标签 ：Vue2, Vuex, Vant
+- 项目角色 ：独立开发者
+- 一句话价值 ：移动端电商全流程演示
+- 演示视频/GIF ：2-3分钟核心流程
+- 在线体验链接 ：已部署的Vue2项目地址（无）
+- GitHub仓库链接：https://github.com/xingyuanshenshuang/hm-shopping
+- 截图 ：3-5张关键页面
+- 案例研究文档 ：按挑战/解决方案/代码亮点结构
+### 2. 大事件管理系统（Vue3项目）
+- 项目名称 ：大事件管理系统
+- 技术栈标签 ：Vue3, Pinia, Element Plus
+- 项目角色 ：独立开发者
+- 一句话价值 ：后台管理+数据可视化
+- 演示视频/GIF ：2-3分钟核心流程
+- 在线体验链接 ：已部署的Vue3项目地址（无）
+- GitHub仓库链接：https://github.com/xingyuanshenshuang/Vue3-big-event-admin-v2
+- 截图 ：3-5张关键页面
+- 案例研究文档 ：按挑战/解决方案/代码亮点结构
