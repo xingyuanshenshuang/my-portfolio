@@ -8,7 +8,7 @@ import skipFormatting from 'eslint-config-prettier/flat'
 export default defineConfig([
   {
     name: 'app/files-to-lint',
-    files: ['**/*.{vue,js,mjs,jsx}'],
+    files: ['**/*.{vue,js,mjs,jsx}']
   },
 
   globalIgnores(['**/dist/**', '**/dist-ssr/**', '**/coverage/**']),
@@ -16,9 +16,9 @@ export default defineConfig([
   {
     languageOptions: {
       globals: {
-        ...globals.browser,
-      },
-    },
+        ...globals.browser
+      }
+    }
   },
 
   js.configs.recommended,
@@ -26,5 +26,16 @@ export default defineConfig([
 
   ...pluginOxlint.buildFromOxlintConfigFile('.oxlintrc.json'),
 
-  skipFormatting,
+  {
+    rules: {
+      'vue/multi-word-component-names': [
+        'warn',
+        {
+          ignores: ['index'] // vue组件名称多单词组成（忽略index.vue）
+        }
+      ],
+      'vue/no-setup-props-destructure': ['off'] // 关闭 props 解构的校验
+    }
+  },
+  skipFormatting
 ])
