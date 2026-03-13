@@ -14,8 +14,8 @@ const router = createRouter({
           component: () => import('@/views/home/HomeView.vue'),
           meta: {
             title: '首页 - 星渊的个人网站',
-            description: '全栈开发者 | AI创作者 - 星渊的个人作品集网站'
-          }
+            description: '全栈开发者 | AI创作者 - 星渊的个人作品集网站',
+          },
         },
         {
           path: 'about',
@@ -23,8 +23,8 @@ const router = createRouter({
           component: () => import('@/views/about/AboutView.vue'),
           meta: {
             title: '关于我 - 星渊的个人网站',
-            description: '了解更多关于星渊的技术背景和创作经历'
-          }
+            description: '了解更多关于星渊的技术背景和创作经历',
+          },
         },
         {
           path: 'projects',
@@ -32,8 +32,8 @@ const router = createRouter({
           component: () => import('@/views/projects/ProjectsView.vue'),
           meta: {
             title: '项目展示 - 星渊的个人网站',
-            description: '探索星渊开发的智慧商城、大事件管理系统等项目'
-          }
+            description: '探索星渊开发的智慧商城、大事件管理系统等项目',
+          },
         },
         {
           path: 'projects/smartmall',
@@ -41,8 +41,8 @@ const router = createRouter({
           component: () => import('@/views/projects/SmartMallView.vue'),
           meta: {
             title: '智慧商城 - 项目详情',
-            description: '基于Vue2的移动端电商全栈演示项目'
-          }
+            description: '基于Vue2的移动端电商全栈演示项目',
+          },
         },
         {
           path: 'projects/eventmgmt',
@@ -50,8 +50,8 @@ const router = createRouter({
           component: () => import('@/views/projects/EventMgmtView.vue'),
           meta: {
             title: '大事件管理系统 - 项目详情',
-            description: '基于Vue3的后台管理系统，集成文章管理与用户管理功能'
-          }
+            description: '基于Vue3的后台管理系统，集成文章管理与用户管理功能',
+          },
         },
         {
           path: 'ai-works',
@@ -59,8 +59,8 @@ const router = createRouter({
           component: () => import('@/views/aiworks/AIWorksView.vue'),
           meta: {
             title: 'AI作品 - 星渊的个人网站',
-            description: '探索星渊的AI生成艺术作品，包含2.5D、二次元、真实风格等'
-          }
+            description: '探索星渊的AI生成艺术作品，包含2.5D、二次元、真实风格等',
+          },
         },
         {
           path: 'blog',
@@ -68,8 +68,8 @@ const router = createRouter({
           component: () => import('@/views/blog/BlogListView.vue'),
           meta: {
             title: '博客 - 星渊的个人网站',
-            description: '分享技术心得、AI工具使用体验等文章'
-          }
+            description: '分享技术心得、AI工具使用体验等文章',
+          },
         },
         {
           path: 'blog/:slug',
@@ -77,10 +77,10 @@ const router = createRouter({
           component: () => import('@/views/blog/BlogPostView.vue'),
           meta: {
             title: '博客文章 - 星渊的个人网站',
-            description: '阅读详细的技术文章和心得分享'
-          }
-        }
-      ]
+            description: '阅读详细的技术文章和心得分享',
+          },
+        },
+      ],
     },
     {
       path: '/:pathMatch(.*)*',
@@ -88,9 +88,9 @@ const router = createRouter({
       component: () => import('@/views/error/NotFoundView.vue'),
       meta: {
         title: '页面未找到 - 星渊的个人网站',
-        description: '抱歉，您访问的页面不存在'
-      }
-    }
+        description: '抱歉，您访问的页面不存在',
+      },
+    },
   ],
   scrollBehavior(to, from, savedPosition) {
     if (savedPosition) {
@@ -98,12 +98,12 @@ const router = createRouter({
     } else {
       return { top: 0 }
     }
-  }
+  },
 })
 
-router.beforeEach((to, from, next) => {
+router.beforeEach((to) => {
   document.title = to.meta.title || '星渊的个人网站'
-  next()
+  return true
 })
 
 export default router
