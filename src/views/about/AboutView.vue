@@ -49,7 +49,12 @@
       <div class="container">
         <SectionTitle title="经历时间轴" subtitle="我的学习和成长历程" />
         <div class="timeline">
-          <div v-for="(exp, index) in experiences" :key="exp.id" class="timeline-item" :class="{ 'is-left': index % 2 === 0 }">
+          <div
+            v-for="(exp, index) in experiences"
+            :key="exp.id"
+            class="timeline-item"
+            :class="{ 'is-left': index % 2 === 0 }"
+          >
             <div class="timeline-content card">
               <span class="timeline-period">{{ exp.period }}</span>
               <h3 class="timeline-title">{{ exp.title }}</h3>
@@ -89,7 +94,12 @@
           <div class="contact-card card">
             <h3 class="contact-title">社交媒体</h3>
             <div class="contact-links">
-              <a :href="socialLinks.github" target="_blank" rel="noopener noreferrer" class="contact-link">
+              <a
+                :href="socialLinks.github"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="contact-link"
+              >
                 <span class="icon">🐙</span>
                 <span>GitHub</span>
               </a>
@@ -467,6 +477,10 @@ import SectionTitle from '@/components/shared/SectionTitle.vue'
 
 .wechat-card {
   text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
 }
 
 .wechat-qr {
@@ -474,6 +488,7 @@ import SectionTitle from '@/components/shared/SectionTitle.vue'
   height: 150px;
   border-radius: var(--radius-md);
   margin-bottom: var(--space-3);
+  object-fit: contain;
 }
 
 .wechat-tip {
