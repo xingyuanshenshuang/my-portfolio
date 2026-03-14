@@ -44,11 +44,24 @@ export const skills = [
 
 // 技能标签（用于展示）
 export const skillTags = [
-  'Vue 2/3', 'Vue Router', 'Pinia', 'Vuex',
-  'JavaScript', 'TypeScript', 'HTML5', 'CSS3', 'SCSS',
-  'Element Plus', 'Vant', 'Vite',
-  'Git', 'ESLint', 'Prettier',
-  'Midjourney', 'Stable Diffusion', 'AI创作'
+  'Vue 2/3',
+  'Vue Router',
+  'Pinia',
+  'Vuex',
+  'JavaScript',
+  'TypeScript',
+  'HTML5',
+  'CSS3',
+  'SCSS',
+  'Element Plus',
+  'Vant',
+  'Vite',
+  'Git',
+  'ESLint',
+  'Prettier',
+  'Midjourney',
+  'Stable Diffusion',
+  'AI创作'
 ]
 
 // 工作经历
@@ -58,7 +71,8 @@ export const experiences = [
     period: '2024 - 至今',
     title: '前端开发学习者',
     company: '自学阶段',
-    description: '系统学习Vue生态，完成多个实战项目，包括智慧商城、大事件管理系统等。探索AI工具在前端开发中的应用。',
+    description:
+      '系统学习Vue生态，完成多个实战项目，包括智慧商城、大事件管理系统等。探索AI工具在前端开发中的应用。',
     highlights: ['完成Vue2/Vue3项目实战', '掌握前后端分离开发', '学习AI辅助编程']
   },
   {

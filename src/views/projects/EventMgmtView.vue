@@ -290,7 +290,7 @@ export const useArticleStore = defineStore('article', () => {
 
 .project-hero {
   padding: 80px 0;
-  background: linear-gradient(135deg, var(--bg-primary) 0%, var(--bg-secondary) 100%);
+  background: linear-gradient(135deg, var(--color-bg-primary) 0%, var(--color-bg-secondary) 100%);
 
   .container {
     display: grid;
@@ -304,7 +304,7 @@ export const useArticleStore = defineStore('article', () => {
   .project-category {
     display: inline-block;
     padding: 8px 16px;
-    background: var(--accent-color);
+    background: var(--color-accent);
     color: white;
     font-size: 14px;
     font-weight: 500;
@@ -315,14 +315,14 @@ export const useArticleStore = defineStore('article', () => {
   .project-title {
     font-size: 48px;
     font-weight: 700;
-    color: var(--text-primary);
+    color: var(--color-text-primary);
     margin-bottom: 20px;
     line-height: 1.2;
   }
 
   .project-description {
     font-size: 18px;
-    color: var(--text-secondary);
+    color: var(--color-text-secondary);
     line-height: 1.8;
     margin-bottom: 30px;
   }
@@ -335,11 +335,11 @@ export const useArticleStore = defineStore('article', () => {
 
     .tag {
       padding: 6px 14px;
-      background: var(--bg-tertiary);
-      color: var(--text-secondary);
+      background: var(--color-bg-card);
+      color: var(--color-text-secondary);
       font-size: 14px;
       border-radius: 16px;
-      border: 1px solid var(--border-color);
+      border: 1px solid var(--color-border);
     }
   }
 
@@ -364,23 +364,23 @@ export const useArticleStore = defineStore('article', () => {
     }
 
     .btn-primary {
-      background: var(--accent-color);
+      background: var(--color-accent);
       color: white;
 
       &:hover {
         transform: translateY(-2px);
-        box-shadow: 0 8px 20px rgba(14, 165, 233, 0.3);
+        box-shadow: 0 8px 20px rgba(59, 130, 246, 0.4);
       }
     }
 
     .btn-secondary {
       background: transparent;
-      color: var(--text-primary);
-      border: 2px solid var(--border-color);
+      color: var(--color-text-primary);
+      border: 2px solid var(--color-border);
 
       &:hover {
-        border-color: var(--accent-color);
-        color: var(--accent-color);
+        border-color: var(--color-accent);
+        color: var(--color-accent);
       }
     }
   }
@@ -405,7 +405,7 @@ export const useArticleStore = defineStore('article', () => {
 
 .project-tech-section,
 .project-case-section {
-  background: var(--bg-secondary);
+  background: var(--color-bg-secondary);
 }
 
 .tech-grid {
@@ -422,15 +422,15 @@ export const useArticleStore = defineStore('article', () => {
   align-items: center;
   gap: 12px;
   padding: 24px;
-  background: var(--bg-primary);
+  background: var(--color-bg-primary);
   border-radius: 12px;
-  border: 1px solid var(--border-color);
+  border: 1px solid var(--color-border);
   transition: all 0.3s ease;
 
   &:hover {
     transform: translateY(-5px);
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-    border-color: var(--accent-color);
+    border-color: var(--color-accent);
   }
 
   .tech-icon {
@@ -447,7 +447,7 @@ export const useArticleStore = defineStore('article', () => {
   .tech-name {
     font-size: 14px;
     font-weight: 500;
-    color: var(--text-primary);
+    color: var(--color-text-primary);
   }
 }
 
@@ -462,9 +462,9 @@ export const useArticleStore = defineStore('article', () => {
   align-items: flex-start;
   gap: 16px;
   padding: 24px;
-  background: var(--bg-primary);
+  background: var(--color-bg-primary);
   border-radius: 12px;
-  border: 1px solid var(--border-color);
+  border: 1px solid var(--color-border);
   transition: all 0.3s ease;
 
   &:hover {
@@ -476,7 +476,7 @@ export const useArticleStore = defineStore('article', () => {
     width: 40px;
     height: 40px;
     min-width: 40px;
-    background: linear-gradient(135deg, var(--accent-color), #0ea5e9);
+    background: linear-gradient(135deg, var(--color-accent), #0ea5e9);
     border-radius: 10px;
     display: flex;
     align-items: center;
@@ -491,7 +491,7 @@ export const useArticleStore = defineStore('article', () => {
 
   .highlight-text {
     font-size: 15px;
-    color: var(--text-secondary);
+    color: var(--color-text-secondary);
     line-height: 1.6;
     margin: 0;
   }
@@ -512,16 +512,16 @@ export const useArticleStore = defineStore('article', () => {
   .case-title {
     font-size: 22px;
     font-weight: 600;
-    color: var(--text-primary);
+    color: var(--color-text-primary);
     margin-bottom: 16px;
     padding-bottom: 12px;
-    border-bottom: 2px solid var(--accent-color);
+    border-bottom: 2px solid var(--color-accent);
     display: inline-block;
   }
 
   .case-text {
     font-size: 16px;
-    color: var(--text-secondary);
+    color: var(--color-text-secondary);
     line-height: 1.8;
   }
 
@@ -534,7 +534,7 @@ export const useArticleStore = defineStore('article', () => {
       padding-left: 24px;
       margin-bottom: 12px;
       font-size: 16px;
-      color: var(--text-secondary);
+      color: var(--color-text-secondary);
       line-height: 1.6;
 
       &::before {
@@ -544,7 +544,7 @@ export const useArticleStore = defineStore('article', () => {
         top: 10px;
         width: 8px;
         height: 8px;
-        background: var(--accent-color);
+        background: var(--color-accent);
         border-radius: 50%;
       }
     }
@@ -567,8 +567,8 @@ export const useArticleStore = defineStore('article', () => {
 
 .project-nav-section {
   padding: 60px 0;
-  background: var(--bg-secondary);
-  border-top: 1px solid var(--border-color);
+  background: var(--color-bg-secondary);
+  border-top: 1px solid var(--color-border);
 }
 
 .project-nav {
@@ -582,9 +582,9 @@ export const useArticleStore = defineStore('article', () => {
   display: flex;
   flex-direction: column;
   padding: 20px 30px;
-  background: var(--bg-primary);
+  background: var(--color-bg-primary);
   border-radius: 12px;
-  border: 1px solid var(--border-color);
+  border: 1px solid var(--color-border);
   text-decoration: none;
   transition: all 0.3s ease;
   min-width: 180px;
@@ -592,7 +592,7 @@ export const useArticleStore = defineStore('article', () => {
   &:hover {
     transform: translateY(-3px);
     box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
-    border-color: var(--accent-color);
+    border-color: var(--color-accent);
   }
 
   &.prev {
@@ -605,7 +605,7 @@ export const useArticleStore = defineStore('article', () => {
 
   .nav-label {
     font-size: 13px;
-    color: var(--text-tertiary);
+    color: var(--color-text-muted);
     text-transform: uppercase;
     letter-spacing: 1px;
     margin-bottom: 4px;
@@ -614,7 +614,7 @@ export const useArticleStore = defineStore('article', () => {
   .nav-title {
     font-size: 18px;
     font-weight: 600;
-    color: var(--text-primary);
+    color: var(--color-text-primary);
   }
 }
 

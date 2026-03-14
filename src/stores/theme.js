@@ -14,7 +14,7 @@ export const useThemeStore = defineStore('theme', () => {
       isSystemPreference.value = true
       const mediaQuery = window.matchMedia('(prefers-color-scheme: dark)')
       isDark.value = mediaQuery.matches
-      
+
       mediaQuery.addEventListener('change', (e) => {
         if (isSystemPreference.value) {
           isDark.value = e.matches

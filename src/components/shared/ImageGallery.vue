@@ -2,15 +2,26 @@
   <div class="image-gallery">
     <!-- 主图展示 -->
     <div class="main-image-container">
-      <img :src="images[currentIndex]" :alt="`图片 ${currentIndex + 1}`" class="main-image" @click="openLightbox" />
-      <button v-if="images.length > 1" class="nav-btn prev" @click="prevImage"> &#8249; </button>
-      <button v-if="images.length > 1" class="nav-btn next" @click="nextImage"> &#8250; </button>
+      <img
+        :src="images[currentIndex]"
+        :alt="`图片 ${currentIndex + 1}`"
+        class="main-image"
+        @click="openLightbox"
+      />
+      <button v-if="images.length > 1" class="nav-btn prev" @click="prevImage">&#8249;</button>
+      <button v-if="images.length > 1" class="nav-btn next" @click="nextImage">&#8250;</button>
       <div class="image-counter">{{ currentIndex + 1 }} / {{ images.length }}</div>
     </div>
 
     <!-- 缩略图列表 -->
     <div v-if="images.length > 1" class="thumbnail-list">
-      <div v-for="(image, index) in images" :key="index" class="thumbnail-item" :class="{ active: index === currentIndex }" @click="currentIndex = index">
+      <div
+        v-for="(image, index) in images"
+        :key="index"
+        class="thumbnail-item"
+        :class="{ active: index === currentIndex }"
+        @click="currentIndex = index"
+      >
         <img :src="image" :alt="`缩略图 ${index + 1}`" />
       </div>
     </div>
@@ -19,10 +30,18 @@
     <Teleport to="body">
       <div v-if="isLightboxOpen" class="lightbox" @click="closeLightbox">
         <div class="lightbox-content" @click.stop>
-          <img :src="images[currentIndex]" :alt="`图片 ${currentIndex + 1}`" class="lightbox-image" />
-          <button class="lightbox-close" @click="closeLightbox"> &times; </button>
-          <button v-if="images.length > 1" class="lightbox-nav prev" @click.stop="prevImage"> &#8249; </button>
-          <button v-if="images.length > 1" class="lightbox-nav next" @click.stop="nextImage"> &#8250; </button>
+          <img
+            :src="images[currentIndex]"
+            :alt="`图片 ${currentIndex + 1}`"
+            class="lightbox-image"
+          />
+          <button class="lightbox-close" @click="closeLightbox">&times;</button>
+          <button v-if="images.length > 1" class="lightbox-nav prev" @click.stop="prevImage">
+            &#8249;
+          </button>
+          <button v-if="images.length > 1" class="lightbox-nav next" @click.stop="nextImage">
+            &#8250;
+          </button>
         </div>
       </div>
     </Teleport>
@@ -47,9 +66,12 @@ const props = defineProps({
 const currentIndex = ref(props.initialIndex)
 const isLightboxOpen = ref(false)
 
-watch(() => props.initialIndex, (newVal) => {
-  currentIndex.value = newVal
-})
+watch(
+  () => props.initialIndex,
+  (newVal) => {
+    currentIndex.value = newVal
+  }
+)
 
 const nextImage = () => {
   currentIndex.value = (currentIndex.value + 1) % props.images.length

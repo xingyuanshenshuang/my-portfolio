@@ -4,7 +4,8 @@ export const projects = [
     id: 'smartmall',
     name: '智慧商城',
     category: '电商全栈项目',
-    description: '基于Vue2的移动端电商全栈演示项目，实现了用户从浏览、购物到支付的完整流程。项目采用Vue2 + Vuex + Vant技术栈，实现了商品展示、购物车管理、订单结算等核心功能。',
+    description:
+      '基于Vue2的移动端电商全栈演示项目，实现了用户从浏览、购物到支付的完整流程。项目采用Vue2 + Vuex + Vant技术栈，实现了商品展示、购物车管理、订单结算等核心功能。',
     shortDescription: '基于Vue2的移动端电商全栈演示项目',
     image: '/assets/projects/smartmall/home.png',
     gallery: [
@@ -33,7 +34,8 @@ export const projects = [
     id: 'eventmgmt',
     name: '大事件管理系统',
     category: '后台管理系统',
-    description: '基于Vue3的后台管理系统，集成文章管理与用户管理功能，实现对大事件数据的高效管理。项目采用Vue3 + Pinia + Element Plus技术栈，实现了文章发布、分类管理、用户权限控制等功能。',
+    description:
+      '基于Vue3的后台管理系统，集成文章管理与用户管理功能，实现对大事件数据的高效管理。项目采用Vue3 + Pinia + Element Plus技术栈，实现了文章发布、分类管理、用户权限控制等功能。',
     shortDescription: '基于Vue3的后台管理系统',
     image: '/assets/projects/eventmgmt/login.png',
     gallery: [
@@ -44,12 +46,7 @@ export const projects = [
     demoVideo: '/assets/projects/eventmgmt/demo.mp4',
     tags: ['Vue3', 'Pinia', 'Element Plus', '后台管理'],
     techStack: ['Vue3', 'Pinia', 'Vue Router', 'Element Plus', 'Axios'],
-    highlights: [
-      '使用Vue3 Composition API',
-      'Pinia状态管理',
-      '文章分类与标签管理',
-      '用户权限控制'
-    ],
+    highlights: ['使用Vue3 Composition API', 'Pinia状态管理', '文章分类与标签管理', '用户权限控制'],
     githubUrl: 'https://github.com/xingyuanshenshuang/Vue3-big-event-admin',
     demoUrl: '',
     path: '/projects/eventmgmt'
