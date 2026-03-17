@@ -119,6 +119,7 @@ import { ref, computed, onMounted, watch } from 'vue'
 import { useRoute, useRouter } from 'vue-router'
 import { blogPosts, getPostBySlug } from '@/constants/blog.js'
 import MarkdownRenderer from '@/components/shared/MarkdownRenderer.vue'
+import { updateSeo, generateBlogPostSeo } from '@/utils/seo.js'
 
 const route = useRoute()
 const router = useRouter()
@@ -192,6 +193,9 @@ const loadMarkdownContent = async () => {
     // 这里我们使用 marked 或其他方式将 markdown 转换为 html
     // 由于 vite-plugin-markdown 配置为 html 模式，我们需要手动转换
     markdownContent.value = await renderMarkdown(markdownText)
+
+    // 更新SEO元信息
+    updateSeo(generateBlogPostSeo(post.value))
   } catch (error) {
     console.error('加载文章失败:', error)
     markdownContent.value = '<p>加载文章失败，请稍后重试</p>'

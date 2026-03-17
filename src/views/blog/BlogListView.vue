@@ -3,12 +3,12 @@
     <!-- Hero 区域 -->
     <section class="hero-section">
       <div class="container">
-        <div class="hero-content">
-          <h1 class="hero-title">技术博客</h1>
-          <p class="hero-description">
+        <div class="hero-content" v-fade-in>
+          <h1 class="hero-title" v-fade-in-up="{ delay: 100 }">技术博客</h1>
+          <p class="hero-description" v-fade-in-up="{ delay: 200 }">
             分享前端开发经验、AI工具使用心得和技术探索笔记
           </p>
-          <div class="blog-stats">
+          <div class="blog-stats" v-fade-in-up="{ delay: 300 }">
             <span class="stat-item">
               <strong>{{ filteredPosts.length }}</strong> 篇文章
             </span>
@@ -23,7 +23,7 @@
     <!-- 分类筛选 -->
     <section class="filter-section">
       <div class="container">
-        <div class="category-filter">
+        <div class="category-filter" v-fade-in-up>
           <button
             v-for="category in blogCategories"
             :key="category.id"
@@ -40,7 +40,7 @@
     <!-- 文章列表 -->
     <section class="posts-section">
       <div class="container">
-        <div class="posts-grid">
+        <div class="posts-grid" v-stagger="{ delay: 100, stagger: 100 }">
           <article
             v-for="post in filteredPosts"
             :key="post.slug"
@@ -63,15 +63,15 @@
                 <div class="post-stats">
                   <span class="read-time">
                     <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor">
-                      <circle cx="12" cy="12" r="10" stroke-width="2"/>
-                      <path d="M12 6v6l4 2" stroke-width="2" stroke-linecap="round"/>
+                      <circle cx="12" cy="12" r="10" stroke-width="2" />
+                      <path d="M12 6v6l4 2" stroke-width="2" stroke-linecap="round" />
                     </svg>
                     {{ post.readTime }}
                   </span>
                   <span class="views">
                     <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor">
-                      <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z" stroke-width="2"/>
-                      <circle cx="12" cy="12" r="3" stroke-width="2"/>
+                      <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z" stroke-width="2" />
+                      <circle cx="12" cy="12" r="3" stroke-width="2" />
                     </svg>
                     {{ post.views }}
                   </span>
@@ -82,10 +82,10 @@
         </div>
 
         <!-- 空状态 -->
-        <div v-if="filteredPosts.length === 0" class="empty-state">
+        <div v-if="filteredPosts.length === 0" class="empty-state" v-fade-in>
           <svg class="empty-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor">
-            <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z" stroke-width="2"/>
-            <polyline points="14 2 14 8 20 8" stroke-width="2"/>
+            <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z" stroke-width="2" />
+            <polyline points="14 2 14 8 20 8" stroke-width="2" />
           </svg>
           <p>该分类下暂无文章</p>
         </div>
@@ -98,6 +98,7 @@
 import { ref, computed } from 'vue'
 import { useRouter } from 'vue-router'
 import { blogPosts, blogCategories } from '@/constants/blog.js'
+import { vFadeIn, vFadeInUp, vStagger } from '@/directives/animations'
 
 const router = useRouter()
 const currentCategory = ref('all')
@@ -107,13 +108,13 @@ const filteredPosts = computed(() => {
   if (currentCategory.value === 'all') {
     return blogPosts
   }
-  return blogPosts.filter(post => {
+  return blogPosts.filter((post) => {
     // 根据分类名称匹配
     const categoryMap = {
-      'tech': '技术分享',
-      'ai': 'AI创作',
-      'tutorial': '教程',
-      'thoughts': '随笔'
+      tech: '技术分享',
+      ai: 'AI创作',
+      tutorial: '教程',
+      thoughts: '随笔'
     }
     return post.category === categoryMap[currentCategory.value]
   })

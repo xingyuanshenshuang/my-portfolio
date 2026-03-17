@@ -1,15 +1,23 @@
 <template>
   <div class="not-found-view">
     <div class="container">
-      <div class="error-content">
-        <h1 class="error-code">404</h1>
-        <h2 class="error-title">页面未找到</h2>
-        <p class="error-description">抱歉，您访问的页面不存在或已被移除。</p>
-        <router-link to="/" class="btn btn-primary"> 返回首页 </router-link>
+      <div class="error-content" v-fade-in-scale>
+        <h1 class="error-code" v-fade-in-up="{ delay: 100 }">404</h1>
+        <h2 class="error-title" v-fade-in-up="{ delay: 200 }">页面未找到</h2>
+        <p class="error-description" v-fade-in-up="{ delay: 300 }">
+          抱歉，您访问的页面不存在或已被移除。
+        </p>
+        <router-link to="/" class="btn btn-primary" v-fade-in-up="{ delay: 400 }">
+          返回首页
+        </router-link>
       </div>
     </div>
   </div>
 </template>
+
+<script setup>
+import { vFadeInUp, vFadeInScale } from '@/directives/animations'
+</script>
 
 <style scoped>
 .not-found-view {

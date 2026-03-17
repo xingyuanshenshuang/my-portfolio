@@ -4,18 +4,18 @@
     <section class="hero">
       <div class="container">
         <div class="hero-content">
-          <div class="hero-text">
+          <div class="hero-text" v-fade-in-left>
             <h1 class="hero-title">
               Hi, 我是 <span class="name">{{ profile.name }}</span>
             </h1>
-            <p class="hero-subtitle">{{ profile.title }}</p>
-            <p class="hero-description">{{ profile.bio }}</p>
-            <div class="hero-actions">
+            <p class="hero-subtitle" v-fade-in-up="{ delay: 200 }">{{ profile.title }}</p>
+            <p class="hero-description" v-fade-in-up="{ delay: 300 }">{{ profile.bio }}</p>
+            <div class="hero-actions" v-fade-in-up="{ delay: 400 }">
               <router-link to="/projects" class="btn btn-primary"> 查看作品 </router-link>
               <router-link to="/about" class="btn btn-secondary"> 了解更多 </router-link>
             </div>
           </div>
-          <div class="hero-image">
+          <div class="hero-image" v-fade-in-right>
             <div class="avatar-container">
               <img :src="profile.avatar" :alt="profile.name + '的头像'" class="avatar" />
             </div>
@@ -27,11 +27,11 @@
     <!-- Featured Projects Section -->
     <section class="featured-projects">
       <div class="container">
-        <SectionTitle title="精选项目" subtitle="探索我的技术实践与创意作品" />
-        <div class="projects-grid">
+        <SectionTitle title="精选项目" subtitle="探索我的技术实践与创意作品" v-fade-in-up />
+        <div class="projects-grid" v-stagger="{ delay: 100, stagger: 150 }">
           <ProjectCard v-for="project in featuredProjects" :key="project.id" :project="project" />
         </div>
-        <div class="section-footer">
+        <div class="section-footer" v-fade-in-up="{ delay: 300 }">
           <router-link to="/projects" class="btn btn-secondary"> 查看全部项目 </router-link>
         </div>
       </div>
@@ -40,8 +40,8 @@
     <!-- Latest Blog Section -->
     <section class="latest-blog">
       <div class="container">
-        <SectionTitle title="最新博客" subtitle="分享技术心得与学习经验" />
-        <div class="blog-list">
+        <SectionTitle title="最新博客" subtitle="分享技术心得与学习经验" v-fade-in-up />
+        <div class="blog-list" v-stagger="{ delay: 100, stagger: 100 }">
           <article v-for="post in latestPosts" :key="post.slug" class="blog-card card">
             <div class="blog-meta">
               <time :datetime="post.date">{{ formatDate(post.date) }}</time>
@@ -56,7 +56,7 @@
             <router-link :to="`/blog/${post.slug}`" class="read-more"> 阅读全文 → </router-link>
           </article>
         </div>
-        <div class="section-footer">
+        <div class="section-footer" v-fade-in-up="{ delay: 300 }">
           <router-link to="/blog" class="btn btn-secondary"> 查看全部文章 </router-link>
         </div>
       </div>
@@ -65,9 +65,13 @@
     <!-- Skills Preview Section -->
     <section class="skills-preview">
       <div class="container">
-        <SectionTitle title="技术栈" subtitle="熟练掌握的前端技术与工具" />
-        <div class="skills-grid">
-          <div v-for="category in skills.slice(0, 3)" :key="category.category" class="skill-category">
+        <SectionTitle title="技术栈" subtitle="熟练掌握的前端技术与工具" v-fade-in-up />
+        <div class="skills-grid" v-stagger="{ delay: 100, stagger: 150 }">
+          <div
+            v-for="category in skills.slice(0, 3)"
+            :key="category.category"
+            class="skill-category"
+          >
             <h3 class="category-title">{{ category.category }}</h3>
             <div class="skill-items">
               <div v-for="skill in category.items.slice(0, 3)" :key="skill.name" class="skill-item">
@@ -79,7 +83,7 @@
             </div>
           </div>
         </div>
-        <div class="section-footer">
+        <div class="section-footer" v-fade-in-up="{ delay: 300 }">
           <router-link to="/about" class="btn btn-secondary"> 查看全部技能 </router-link>
         </div>
       </div>
@@ -94,6 +98,7 @@ import { skills } from '@/constants/skills'
 import { getLatestPosts } from '@/constants/blog'
 import SectionTitle from '@/components/shared/SectionTitle.vue'
 import ProjectCard from '@/components/shared/ProjectCard.vue'
+import { vFadeInUp, vFadeInLeft, vFadeInRight, vStagger } from '@/directives/animations'
 
 const latestPosts = getLatestPosts(3)
 

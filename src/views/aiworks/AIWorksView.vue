@@ -40,9 +40,20 @@
             @click="openLightbox(work)"
           >
             <div class="work-image-wrapper">
-              <img :src="work.image" :alt="work.title" class="work-image" />
+              <img :src="work.image" :alt="work.title" class="work-image" v-lazy="work.image" />
               <div class="work-overlay">
-                <span class="view-icon">🔍</span>
+                <div class="view-icon">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" class="view-svg">
+                    <circle cx="11" cy="11" r="8" stroke-width="2" />
+                    <path
+                      d="M21 21l-4.35-4.35"
+                      stroke-width="2"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                    />
+                  </svg>
+                  <span class="view-text">查看详情</span>
+                </div>
               </div>
             </div>
             <div class="work-info">
@@ -77,12 +88,7 @@
           >
             <h3 class="tool-name">{{ tool.name }}</h3>
             <p class="tool-description">{{ tool.description }}</p>
-            <a
-              :href="tool.url"
-              target="_blank"
-              rel="noopener noreferrer"
-              class="tool-link"
-            >
+            <a :href="tool.url" target="_blank" rel="noopener noreferrer" class="tool-link">
               了解更多 →
             </a>
           </div>
@@ -95,26 +101,14 @@
       <Transition name="fade">
         <div v-if="lightboxOpen" class="lightbox" @click="closeLightbox">
           <button class="lightbox-close" @click.stop="closeLightbox">×</button>
-          <button
-            v-if="hasPrev"
-            class="lightbox-nav lightbox-prev"
-            @click.stop="prevImage"
-          >
+          <button v-if="hasPrev" class="lightbox-nav lightbox-prev" @click.stop="prevImage">
             ←
           </button>
-          <button
-            v-if="hasNext"
-            class="lightbox-nav lightbox-next"
-            @click.stop="nextImage"
-          >
+          <button v-if="hasNext" class="lightbox-nav lightbox-next" @click.stop="nextImage">
             →
           </button>
           <div class="lightbox-content" @click.stop>
-            <img
-              :src="currentWork?.image"
-              :alt="currentWork?.title"
-              class="lightbox-image"
-            />
+            <img :src="currentWork?.image" :alt="currentWork?.title" class="lightbox-image" />
             <div class="lightbox-info">
               <h3>{{ currentWork?.title }}</h3>
               <p>{{ currentWork?.description }}</p>
@@ -304,11 +298,18 @@ const nextImage = () => {
 
 .work-item {
   cursor: pointer;
-  transition: transform var(--transition-normal);
+  transition: all var(--transition-normal);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
 }
 
 .work-item:hover {
-  transform: translateY(-4px);
+  transform: translateY(-8px);
+  box-shadow: var(--shadow-xl);
+}
+
+.work-item:hover .work-image-wrapper {
+  transform: scale(1.02);
 }
 
 .work-image-wrapper {
@@ -317,6 +318,7 @@ const nextImage = () => {
   border-radius: var(--radius-lg);
   overflow: hidden;
   margin-bottom: var(--space-4);
+  transition: transform var(--transition-normal);
 }
 
 .work-image {
@@ -327,13 +329,13 @@ const nextImage = () => {
 }
 
 .work-item:hover .work-image {
-  transform: scale(1.05);
+  transform: scale(1.1);
 }
 
 .work-overlay {
   position: absolute;
   inset: 0;
-  background-color: rgba(0, 0, 0, 0.4);
+  background-color: rgba(0, 0, 0, 0.7);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -346,7 +348,29 @@ const nextImage = () => {
 }
 
 .view-icon {
-  font-size: var(--text-3xl);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-2);
+  color: white;
+  transform: translateY(10px);
+  transition: transform var(--transition-normal);
+}
+
+.work-item:hover .view-icon {
+  transform: translateY(0);
+}
+
+.view-svg {
+  width: 32px;
+  height: 32px;
+  stroke: white;
+}
+
+.view-text {
+  font-size: var(--text-sm);
+  font-weight: var(--font-medium);
+  opacity: 0.9;
 }
 
 .work-info {

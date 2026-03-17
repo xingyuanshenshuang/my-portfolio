@@ -4,10 +4,10 @@
     <section class="about-hero">
       <div class="container">
         <div class="hero-content">
-          <div class="hero-image">
+          <div class="hero-image" v-fade-in-left>
             <img :src="profile.avatar" :alt="profile.name + '的头像'" class="avatar" />
           </div>
-          <div class="hero-text">
+          <div class="hero-text" v-fade-in-right>
             <h1 class="title">关于我</h1>
             <p class="subtitle">{{ profile.title }}</p>
             <p class="description">{{ profile.description }}</p>
@@ -23,8 +23,8 @@
     <!-- Skills Section -->
     <section class="skills-section">
       <div class="container">
-        <SectionTitle title="技能清单" subtitle="我掌握的技术栈和工具" />
-        <div class="skills-grid">
+        <SectionTitle title="技能清单" subtitle="我掌握的技术栈和工具" v-fade-in-up />
+        <div class="skills-grid" v-stagger="{ delay: 100, stagger: 150 }">
           <div v-for="category in skills" :key="category.category" class="skill-card card">
             <h3 class="category-title">{{ category.category }}</h3>
             <div class="skill-list">
@@ -47,8 +47,8 @@
     <!-- Experience Section -->
     <section class="experience-section">
       <div class="container">
-        <SectionTitle title="经历时间轴" subtitle="我的学习和成长历程" />
-        <div class="timeline">
+        <SectionTitle title="经历时间轴" subtitle="我的学习和成长历程" v-fade-in-up />
+        <div class="timeline" v-stagger="{ delay: 100, stagger: 200 }">
           <div
             v-for="(exp, index) in experiences"
             :key="exp.id"
@@ -72,8 +72,8 @@
     <!-- Education Section -->
     <section class="education-section">
       <div class="container">
-        <SectionTitle title="教育背景" subtitle="我的学习经历" />
-        <div class="education-list">
+        <SectionTitle title="教育背景" subtitle="我的学习经历" v-fade-in-up />
+        <div class="education-list" v-stagger="{ delay: 100, stagger: 150 }">
           <div v-for="edu in education" :key="edu.id" class="education-card card">
             <div class="edu-header">
               <h3 class="edu-school">{{ edu.school }}</h3>
@@ -89,8 +89,8 @@
     <!-- Contact Section -->
     <section class="contact-section">
       <div class="container">
-        <SectionTitle title="联系方式" subtitle="期待与您的交流与合作" />
-        <div class="contact-grid">
+        <SectionTitle title="联系方式" subtitle="期待与您的交流与合作" v-fade-in-up />
+        <div class="contact-grid" v-stagger="{ delay: 100, stagger: 100 }">
           <div class="contact-card card">
             <h3 class="contact-title">社交媒体</h3>
             <div class="contact-links">
@@ -132,6 +132,7 @@
 import { profile, socialLinks, contact } from '@/constants/profile'
 import { skills, experiences, education } from '@/constants/skills'
 import SectionTitle from '@/components/shared/SectionTitle.vue'
+import { vFadeInUp, vFadeInLeft, vFadeInRight, vStagger } from '@/directives/animations'
 </script>
 
 <style scoped>
