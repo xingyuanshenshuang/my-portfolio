@@ -9,7 +9,7 @@ lerna-debug.log*
 
 node_modules
 .DS_Store
-dist
+# dist - 允许提交构建输出到版本库
 dist-ssr
 coverage
 *.local
