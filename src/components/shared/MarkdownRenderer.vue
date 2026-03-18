@@ -4,10 +4,10 @@
 
 <script setup>
 import { computed, onMounted, watch, nextTick } from 'vue'
-import hljs from 'highlight.js'
 import 'highlight.js/styles/atom-one-dark.css'
 
-// 注册 highlight.js 语言模块
+// 按需导入 highlight.js 核心和语言模块
+import hljs from 'highlight.js/lib/core'
 import javascript from 'highlight.js/lib/languages/javascript'
 import xml from 'highlight.js/lib/languages/xml'
 import css from 'highlight.js/lib/languages/css'

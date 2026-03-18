@@ -1,11 +1,12 @@
 // 博客文章列表
+// 注意：资源路径使用相对路径（不带/开头），让Vite自动处理base路径
 export const blogPosts = [
   {
     slug: 'vue-nexttick-guide',
     title: 'Vue3中异步DOM更新与nextTick的实战解析',
     excerpt:
       '从ArticleEdit组件踩坑说起，深入理解Vue3的异步更新机制和nextTick的正确使用方式。本文将结合实际案例，详细讲解nextTick的原理和最佳实践。',
-    content: '/assets/blog/vue-nexttick-guide.md',
+    content: 'assets/blog/vue-nexttick-guide.md',
     date: '2026-03-12',
     author: '星渊',
     tags: ['Vue3', '前端', '异步编程'],
