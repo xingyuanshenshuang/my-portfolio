@@ -1,10 +1,11 @@
 // AI作品数据
+// 注意：资源路径使用相对路径（不带/开头），让Vite自动处理base路径
 export const aiWorks = [
   {
     id: 'ai-2.5d-01',
     title: '2.5D风格作品 01',
     category: '2.5D',
-    image: '/assets/ai-works/ai-2.5d-01.png',
+    image: 'assets/ai-works/ai-2.5d-01.png',
     description: '使用Midjourney生成的2.5D风格艺术作品',
     prompt: '2.5D illustration style, isometric view, vibrant colors',
     tool: 'Midjourney',
@@ -14,7 +15,7 @@ export const aiWorks = [
     id: 'ai-2.5d-02',
     title: '2.5D风格作品 02',
     category: '2.5D',
-    image: '/assets/ai-works/ai-2.5d-02.png',
+    image: 'assets/ai-works/ai-2.5d-02.png',
     description: '使用Midjourney生成的2.5D风格艺术作品',
     prompt: '2.5D illustration style, isometric view, vibrant colors',
     tool: 'Midjourney',
@@ -24,7 +25,7 @@ export const aiWorks = [
     id: 'ai-anime-01',
     title: '二次元风格作品 01',
     category: '二次元',
-    image: '/assets/ai-works/ai-anime-01.png',
+    image: 'assets/ai-works/ai-anime-01.png',
     description: '使用Stable Diffusion生成的二次元风格作品',
     prompt: 'Anime style, detailed, high quality',
     tool: 'Stable Diffusion',
@@ -34,7 +35,7 @@ export const aiWorks = [
     id: 'ai-realistic-01',
     title: '真实风格作品 01',
     category: '真实',
-    image: '/assets/ai-works/ai-realistic-01.png',
+    image: 'assets/ai-works/ai-realistic-01.png',
     description: '使用Midjourney生成的真实风格作品',
     prompt: 'Photorealistic, detailed, high quality',
     tool: 'Midjourney',
@@ -44,7 +45,7 @@ export const aiWorks = [
     id: 'ai-realistic-02',
     title: '真实风格作品 02',
     category: '真实',
-    image: '/assets/ai-works/ai-realistic-02.png',
+    image: 'assets/ai-works/ai-realistic-02.png',
     description: '使用Midjourney生成的真实风格作品',
     prompt: 'Photorealistic, detailed, high quality',
     tool: 'Midjourney',
